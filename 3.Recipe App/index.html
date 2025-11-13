@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Recipes Master App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="./img/chef.png" type="./img/chef.png" />
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.98);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .animate-fadeIn {
+        animation: fadeIn 0.5s;
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-gradient-to-tr from-lime-100 to-rose-100 min-h-screen flex flex-col"
+  >
+    <!-- Header -->
+    <header
+      class="bg-gradient-to-r from-violet-600 to-pink-600 py-6 shadow-lg mb-6"
+    >
+      <h1
+        class="text-3xl md:text-4xl font-black text-white text-center tracking-wide drop-shadow"
+      >
+        Recipes List
+      </h1>
+      <p class="text-center text-pink-50 italic">
+        Discover a fresh taste every day.
+      </p>
+    </header>
+
+    <!-- Cards and Loader -->
+    <main class="flex-1 w-full max-w-6xl mx-auto my-6 px-4">
+      <div
+        id="recipeGrid"
+        class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
+      ></div>
+      <div id="loader" class="hidden flex flex-col items-center mt-16">
+        <div
+          class="h-16 w-16 rounded-full border-8 border-lime-400 border-t-pink-400 animate-spin mb-2"
+        ></div>
+        <div class="text-lg font-semibold text-pink-600 animate-pulse">
+          Fetching something delicious...
+        </div>
+      </div>
+    </main>
+
+    <!-- Recipe Modal Popup -->
+    <div
+      id="modalBg"
+      class="fixed inset-0 z-50 hidden bg-black/40 flex items-center justify-center"
+    >
+      <div
+        class="bg-white rounded-2xl shadow-2xl p-7 max-w-lg w-[90vw] relative animate-fadeIn"
+      >
+        <button
+          id="closeModalBtn"
+          class="absolute right-5 top-3 text-xl text-pink-700 hover:text-pink-900 font-extrabold"
+        >
+          &times;
+        </button>
+        <h2
+          id="modalTitle"
+          class="text-2xl font-bold mb-2 text-center text-pink-700"
+        ></h2>
+        <img
+          id="modalImg"
+          class="w-44 h-44 mx-auto rounded-xl border mt-1 mb-3 object-cover shadow-md"
+        />
+        <h3 class="text-emerald-600 mb-1 font-semibold">Ingredients</h3>
+        <ul
+          id="modalIngredients"
+          class="list-disc ml-7 mb-2 space-y-1 text-gray-700"
+        ></ul>
+        <h3 class="text-pink-500 mb-1 font-semibold">Instructions</h3>
+        <p id="modalInstructions" class="text-gray-600 text-sm"></p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer
+      class="bg-white shadow-t py-5 text-center text-emerald-800 font-light mt-4 text-sm"
+    >
+      © 2025, MasterChef Winner Patil Jayesh
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

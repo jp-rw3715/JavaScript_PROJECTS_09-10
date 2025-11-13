@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Management Dashboard CRUD</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo-section">
+        <div class="logo-icon">
+          <i class="fas fa-cube"></i>
+        </div>
+        <div class="logo-text">Automoor</div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">BI</div>
+        <a href="#" class="sidebar-item">
+          <i class="far fa-chart-bar"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="#" class="sidebar-item">
+          <i class="far fa-file-alt"></i>
+          <span>Templates</span>
+        </a>
+        <a href="#" class="sidebar-item">
+          <i class="far fa-file-invoice"></i>
+          <span>Invoice</span>
+          <i class="fas fa-chevron-down ms-auto" style="font-size: 10px"></i>
+        </a>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">ERP</div>
+        <a href="#" class="sidebar-item">
+          <i class="far fa-clipboard"></i>
+          <span>Accounting</span>
+        </a>
+        <a href="#" class="sidebar-item">
+          <i class="fas fa-boxes"></i>
+          <span>Inventory</span>
+        </a>
+        <a href="#" class="sidebar-item">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Sales</span>
+        </a>
+        <a href="#" class="sidebar-item">
+          <i class="fas fa-wrench"></i>
+          <span>Service</span>
+        </a>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">CRM</div>
+        <a href="#" class="sidebar-item">
+          <i class="fas fa-chart-line"></i>
+          <span>Sales</span>
+        </a>
+        <a href="#" class="sidebar-item active">
+          <i class="far fa-address-book"></i>
+          <span>Contacts</span>
+        </a>
+      </div>
+
+      <div style="flex: 1"></div>
+
+      <div style="padding-bottom: 20px">
+        <a href="#" class="sidebar-item">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="breadcrumb-custom">
+          <i class="fas fa-home"></i>
+          <span>/</span>
+          <span>Contacts</span>
+        </div>
+        <div class="user-section">
+          <div class="notification-icon">
+            <i
+              class="fas fa-search"
+              style="
+                position: absolute;
+                left: -40px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #9ca3af;
+              "
+            ></i>
+            <i class="far fa-bell" style="font-size: 20px; color: #6b7280"></i>
+            <div class="notification-badge">1</div>
+          </div>
+          <div class="user-avatar">
+            <img
+              src="https://ui-avatars.com/api/?name=Vitalji&background=818cf8&color=fff"
+              style="width: 100%; height: 100%; border-radius: 50%"
+              alt="User"
+            />
+          </div>
+          <div class="user-name">Vitalji</div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="content-wrapper">
+        <div class="content-header">
+          <h1 class="content-title">Contacts</h1>
+          <div class="header-actions">
+            <button class="btn-primary-custom">
+              <i class="fas fa-plus"></i>
+              Add Contact
+              <i class="fas fa-chevron-down" style="font-size: 12px"></i>
+            </button>
+            <div class="btn-icon">
+              <i class="fas fa-download" style="color: #6b7280"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters-bar">
+          <div class="filters-left">
+            <select class="filter-select">
+              <option>Last activity date</option>
+            </select>
+            <select class="filter-select">
+              <option>Created date</option>
+            </select>
+            <button class="filter-select">
+              Advanced Filters
+              <i
+                class="fas fa-filter"
+                style="margin-left: 8px; font-size: 12px"
+              ></i>
+            </button>
+          </div>
+          <div style="position: relative">
+            <input type="text" class="search-box" placeholder="Search" />
+            <i
+              class="fas fa-search"
+              style="
+                position: absolute;
+                right: 12px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #9ca3af;
+              "
+            ></i>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="table-container">
+          <table class="table-custom">
+            <thead>
+              <tr>
+                <th style="width: 40px">
+                  <input type="checkbox" class="checkbox-custom" />
+                </th>
+                <th>Contact ↕️</th>
+                <th>Email ↕️</th>
+                <th>Phone No ↕️</th>
+                <th>Date Added ↕️</th>
+                <th style="width: 40px">
+                  <i
+                    class="fas fa-cog"
+                    style="color: #9ca3af; cursor: pointer"
+                  ></i>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" class="checkbox-custom" /></td>
+                <td>
+                  <div class="contact-cell">
+                    <span class="contact-initials bg-blue">ZZ</span>
+                    <span>Zurab Zafar</span>
+                  </div>
+                </td>
+                <td>trunkplunsplintod@gmail.com</td>
+                <td>(684) 555-0102</td>
+                <td>March 13, 2014</td>
+                <td><i class="fas fa-ellipsis-v more-icon"></i></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox-custom" /></td>
+                <td>
+                  <div class="contact-cell">
+                    <span class="contact-initials bg-purple">SU</span>
+                    <span>Sami Ullah</span>
+                  </div>
+                </td>
+                <td>mannhacnht08@gmail.com</td>
+                <td>(316) 555-0116</td>
+                <td>November 16, 2014</td>
+                <td><i class="fas fa-ellipsis-v more-icon"></i></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox-custom" /></td>
+                <td>
+                  <div class="contact-cell">
+                    <span class="contact-initials bg-teal">CW</span>
+                    <span>Cameron Williamson</span>
+                  </div>
+                </td>
+                <td>ckctm12@gmail.com</td>
+                <td>(225) 555-0118</td>
+                <td>February 9, 2015</td>
+                <td><i class="fas fa-ellipsis-v more-icon"></i></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox-custom" /></td>
+                <td>
+                  <div class="contact-cell">
+                    <span class="contact-initials bg-yellow">KM</span>
+                    <span>Kathryn Murphy</span>
+                  </div>
+                </td>
+                <td>mvf.usst.nate@gmail.com</td>
+                <td>(405) 555-0128</td>
+                <td>February 11, 2014</td>
+                <td><i class="fas fa-ellipsis-v more-icon"></i></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox-custom" /></td>
+                <td>
+                  <div class="contact-cell">
+                    <span class="contact-initials bg-green">RE</span>
+                    <span>Ralph Edwards</span>
+                  </div>
+                </td>
+                <td>danghoang87h@gmail.com</td>
+                <td>(702) 555-0122</td>
+                <td>November 7, 2017</td>
+                <td><i class="fas fa-ellipsis-v more-icon"></i></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox-custom" /></td>
+                <td>
+                  <div class="contact-cell">
+                    <span class="contact-initials bg-yellow">JJ</span>
+                    <span>Jacob Jones</span>
+                  </div>
+                </td>
+                <td>vuhaithuongsute@gmail.com</td>
+                <td>(603) 555-0123</td>
+                <td>October 24, 2018</td>
+                <td><i class="fas fa-ellipsis-v more-icon"></i></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox-custom" /></td>
+                <td>
+                  <div class="contact-cell">
+                    <span class="contact-initials bg-pink">SN</span>
+                    <span>Savannah Nguyen</span>
+                  </div>
+                </td>
+                <td>thuhang.nute@gmail.com</td>
+                <td>(270) 555-0117</td>
+                <td>February 29, 2012</td>
+                <td><i class="fas fa-ellipsis-v more-icon"></i></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox-custom" /></td>
+                <td>
+                  <div class="contact-cell">
+                    <span class="contact-initials bg-orange">LA</span>
+                    <span>Leslie Alexander</span>
+                  </div>
+                </td>
+                <td>tranthuy.nute@gmail.com</td>
+                <td>(207) 555-0119</td>
+                <td>December 2, 2018</td>
+                <td><i class="fas fa-ellipsis-v more-icon"></i></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox-custom" /></td>
+                <td>
+                  <div class="contact-cell">
+                    <span class="contact-initials bg-orange">LA</span>
+                    <span>Esther Howard</span>
+                  </div>
+                </td>
+                <td>mannhacnht08@gmail.com</td>
+                <td>(603) 555-0123</td>
+                <td>February 29, 2012</td>
+                <td><i class="fas fa-ellipsis-v more-icon"></i></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox-custom" /></td>
+                <td>
+                  <div class="contact-cell">
+                    <span class="contact-initials bg-orange">LA</span>
+                    <span>Arlene McCoy</span>
+                  </div>
+                </td>
+                <td>tienlapspktnd@gmail.com</td>
+                <td>(907) 555-0101</td>
+                <td>March 13, 2014</td>
+                <td><i class="fas fa-ellipsis-v more-icon"></i></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox-custom" /></td>
+                <td>
+                  <div class="contact-cell">
+                    <span class="contact-initials bg-orange">LA</span>
+                    <span>Dianne Russell</span>
+                  </div>
+                </td>
+                <td>thuhang.nute@gmail.com</td>
+                <td>(316) 555-0116</td>
+                <td>May 6, 2012</td>
+                <td><i class="fas fa-ellipsis-v more-icon"></i></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox-custom" /></td>
+                <td>
+                  <div class="contact-cell">
+                    <span class="contact-initials bg-orange">LA</span>
+                    <span>Albert Flores</span>
+                  </div>
+                </td>
+                <td>vuhaithuongsute@gmail.com</td>
+                <td>(307) 555-0133</td>
+                <td>July 14, 2015</td>
+                <td><i class="fas fa-ellipsis-v more-icon"></i></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox-custom" /></td>
+                <td>
+                  <div class="contact-cell">
+                    <span class="contact-initials bg-orange">LA</span>
+                    <span>Kristin Watson</span>
+                  </div>
+                </td>
+                <td>binhan628@gmail.com</td>
+                <td>(252) 555-0126</td>
+                <td>December 29, 2012</td>
+                <td><i class="fas fa-ellipsis-v more-icon"></i></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox-custom" /></td>
+                <td>
+                  <div class="contact-cell">
+                    <span class="contact-initials bg-orange">LA</span>
+                    <span>Guy Hawkins</span>
+                  </div>
+                </td>
+                <td>tranthuy.nute@gmail.com</td>
+                <td>(229) 555-0109</td>
+                <td>May 12, 2019</td>
+                <td><i class="fas fa-ellipsis-v more-icon"></i></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Pagination -->
+          <div class="pagination-container">
+            <div class="pagination-info">
+              Displaying <strong>20</strong> out of 500
+            </div>
+            <div class="pagination-buttons">
+              <button class="page-btn">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="page-btn active">1</button>
+              <button class="page-btn">2</button>
+              <button class="page-btn">3</button>
+              <button class="page-btn">4</button>
+              <span style="padding: 0 8px; color: #9ca3af">...</span>
+              <button class="page-btn">20</button>
+              <button class="page-btn">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
